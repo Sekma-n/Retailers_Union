@@ -1,0 +1,1115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Retailers Union — Stronger Together</title>
+  <meta name="description" content="Retailers Union is a union dedicated to fighting for fair wages, safe workplaces, and respect for every retail worker. Join the movement.">
+  <!-- Font Awesome for icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer">
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    /* ============================================
+       CSS VARIABLES & RESET
+       ============================================ */
+    :root {
+      --primary: #0a2a5e;        /* Deep navy – trust & stability */
+      --primary-light: #143b7a;
+      --accent: #f5a623;         /* Gold – energy & value */
+      --accent-dark: #d48a00;
+      --text-dark: #1e1e1e;
+      --text-muted: #4a4a4a;
+      --bg-light: #f8f9fa;
+      --bg-white: #ffffff;
+      --border-light: #e0e0e0;
+      --radius: 12px;
+      --shadow: 0 4px 20px rgba(0,0,0,0.08);
+      --shadow-hover: 0 8px 30px rgba(0,0,0,0.12);
+      --transition: 0.3s ease;
+      --max-width: 1200px;
+    }
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+      color: var(--text-dark);
+      background: var(--bg-white);
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+    }
+    a { color: var(--primary); text-decoration: none; transition: color var(--transition); }
+    a:hover { color: var(--accent-dark); }
+    img { max-width: 100%; display: block; }
+    ul { list-style: none; }
+    .container { max-width: var(--max-width); margin: 0 auto; padding: 0 24px; }
+    .section { padding: 80px 0; }
+    .section-title {
+      font-size: 2.2rem;
+      font-weight: 800;
+      margin-bottom: 16px;
+      color: var(--primary);
+      line-height: 1.2;
+    }
+    .section-subtitle {
+      font-size: 1.1rem;
+      color: var(--text-muted);
+      max-width: 700px;
+      margin-bottom: 48px;
+    }
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      padding: 14px 32px;
+      border-radius: 50px;
+      font-weight: 700;
+      font-size: 1rem;
+      border: none;
+      cursor: pointer;
+      transition: all var(--transition);
+      text-align: center;
+    }
+    .btn-primary {
+      background: var(--accent);
+      color: var(--primary);
+    }
+    .btn-primary:hover {
+      background: var(--accent-dark);
+      color: var(--primary);
+      transform: translateY(-2px);
+      box-shadow: 0 6px 20px rgba(245, 166, 35, 0.4);
+    }
+    .btn-outline {
+      background: transparent;
+      border: 2px solid var(--bg-white);
+      color: var(--bg-white);
+    }
+    .btn-outline:hover {
+      background: var(--bg-white);
+      color: var(--primary);
+    }
+    .btn-sm { padding: 10px 24px; font-size: 0.9rem; }
+
+    /* ============================================
+       SKIP LINK (Accessibility)
+       ============================================ */
+    .skip-link {
+      position: absolute;
+      top: -100px;
+      left: 16px;
+      background: var(--accent);
+      color: var(--primary);
+      padding: 12px 24px;
+      border-radius: 0 0 8px 8px;
+      font-weight: 700;
+      z-index: 9999;
+      transition: top 0.2s;
+    }
+    .skip-link:focus { top: 0; }
+
+    /* ============================================
+       HEADER & NAV
+       ============================================ */
+    .header {
+      background: var(--bg-white);
+      box-shadow: 0 2px 12px rgba(0,0,0,0.06);
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+    }
+    .header-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 16px 0;
+    }
+    .logo {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-size: 1.5rem;
+      font-weight: 800;
+      color: var(--primary);
+    }
+    .logo i { color: var(--accent); font-size: 2rem; }
+    .nav-links { display: flex; align-items: center; gap: 32px; }
+    .nav-links a {
+      font-weight: 600;
+      font-size: 0.95rem;
+      color: var(--text-dark);
+      position: relative;
+    }
+    .nav-links a::after {
+      content: '';
+      position: absolute;
+      bottom: -6px;
+      left: 0;
+      width: 0;
+      height: 3px;
+      background: var(--accent);
+      transition: width var(--transition);
+    }
+    .nav-links a:hover::after { width: 100%; }
+    .header-actions { display: flex; gap: 12px; align-items: center; }
+    .mobile-toggle {
+      display: none;
+      background: none;
+      border: none;
+      font-size: 1.6rem;
+      color: var(--primary);
+      cursor: pointer;
+    }
+
+    /* ============================================
+       HERO
+       ============================================ */
+    .hero {
+      background: linear-gradient(135deg, var(--primary) 0%, #0d3570 50%, #1a4a8a 100%);
+      color: var(--bg-white);
+      padding: 100px 0 80px;
+      position: relative;
+      overflow: hidden;
+    }
+    .hero::before {
+      content: '';
+      position: absolute;
+      top: -50%;
+      right: -20%;
+      width: 600px;
+      height: 600px;
+      border-radius: 50%;
+      background: rgba(245, 166, 35, 0.08);
+    }
+    .hero-content { max-width: 720px; position: relative; z-index: 1; }
+    .hero-badge {
+      display: inline-block;
+      background: rgba(245, 166, 35, 0.2);
+      color: var(--accent);
+      padding: 8px 20px;
+      border-radius: 50px;
+      font-weight: 700;
+      font-size: 0.85rem;
+      letter-spacing: 0.5px;
+      margin-bottom: 24px;
+      text-transform: uppercase;
+    }
+    .hero h1 {
+      font-size: 3.2rem;
+      font-weight: 800;
+      line-height: 1.15;
+      margin-bottom: 24px;
+    }
+    .hero h1 span { color: var(--accent); }
+    .hero p {
+      font-size: 1.2rem;
+      opacity: 0.9;
+      margin-bottom: 36px;
+      max-width: 600px;
+      line-height: 1.7;
+    }
+    .hero-actions { display: flex; gap: 16px; flex-wrap: wrap; }
+    .hero-stats {
+      display: flex;
+      gap: 48px;
+      margin-top: 64px;
+      padding-top: 40px;
+      border-top: 1px solid rgba(255,255,255,0.15);
+      position: relative;
+      z-index: 1;
+    }
+    .hero-stat h3 { font-size: 2.4rem; font-weight: 800; color: var(--accent); }
+    .hero-stat p { font-size: 0.95rem; opacity: 0.8; margin-top: 4px; }
+
+    /* ============================================
+       CARDS & GRIDS
+       ============================================ */
+    .grid-3 {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 32px;
+    }
+    .grid-2 {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(360px, 1fr));
+      gap: 32px;
+    }
+    .card {
+      background: var(--bg-white);
+      border: 1px solid var(--border-light);
+      border-radius: var(--radius);
+      padding: 40px 32px;
+      transition: all var(--transition);
+      position: relative;
+    }
+    .card:hover {
+      box-shadow: var(--shadow-hover);
+      border-color: var(--accent);
+      transform: translateY(-4px);
+    }
+    .card-icon {
+      width: 64px;
+      height: 64px;
+      border-radius: 16px;
+      background: linear-gradient(135deg, var(--primary) 0%, var(--primary-light) 100%);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.8rem;
+      color: var(--accent);
+      margin-bottom: 24px;
+    }
+    .card h3 {
+      font-size: 1.3rem;
+      font-weight: 700;
+      margin-bottom: 12px;
+      color: var(--primary);
+    }
+    .card p { color: var(--text-muted); font-size: 0.95rem; line-height: 1.7; }
+    .card .stat-highlight {
+      font-size: 2rem;
+      font-weight: 800;
+      color: var(--accent-dark);
+      display: block;
+      margin-top: 16px;
+    }
+
+    /* ============================================
+       RIGHTS SECTION
+       ============================================ */
+    .rights-section { background: var(--bg-light); }
+    .rights-list { display: grid; gap: 20px; }
+    .rights-item {
+      display: flex;
+      gap: 20px;
+      background: var(--bg-white);
+      padding: 28px 32px;
+      border-radius: var(--radius);
+      border-left: 5px solid var(--accent);
+      box-shadow: 0 2px 10px rgba(0,0,0,0.04);
+      transition: box-shadow var(--transition);
+    }
+    .rights-item:hover { box-shadow: var(--shadow); }
+    .rights-item i {
+      font-size: 1.6rem;
+      color: var(--primary);
+      flex-shrink: 0;
+      margin-top: 4px;
+    }
+    .rights-item h4 { font-size: 1.1rem; font-weight: 700; margin-bottom: 6px; }
+    .rights-item p { color: var(--text-muted); font-size: 0.95rem; }
+
+    /* ============================================
+       BENEFITS
+       ============================================ */
+    .benefits-section { background: var(--bg-white); }
+    .benefit-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 16px;
+      padding: 20px 0;
+      border-bottom: 1px solid var(--border-light);
+    }
+    .benefit-item:last-child { border-bottom: none; }
+    .benefit-item i {
+      color: var(--accent);
+      font-size: 1.4rem;
+      margin-top: 4px;
+    }
+    .benefit-item h4 { font-size: 1.05rem; font-weight: 700; margin-bottom: 4px; }
+    .benefit-item p { color: var(--text-muted); font-size: 0.9rem; }
+
+    /* ============================================
+       ORGANIZE STEPS
+       ============================================ */
+    .organize-section { background: var(--primary); color: var(--bg-white); }
+    .organize-section .section-title { color: var(--bg-white); }
+    .organize-section .section-subtitle { color: rgba(255,255,255,0.8); }
+    .step-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 24px;
+    }
+    .step {
+      background: rgba(255,255,255,0.08);
+      border: 1px solid rgba(255,255,255,0.15);
+      border-radius: var(--radius);
+      padding: 32px 24px;
+      transition: background var(--transition);
+    }
+    .step:hover { background: rgba(255,255,255,0.15); }
+    .step-number {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 48px;
+      height: 48px;
+      border-radius: 50%;
+      background: var(--accent);
+      color: var(--primary);
+      font-weight: 800;
+      font-size: 1.2rem;
+      margin-bottom: 20px;
+    }
+    .step h3 { font-size: 1.1rem; font-weight: 700; margin-bottom: 10px; }
+    .step p { font-size: 0.9rem; opacity: 0.85; line-height: 1.6; }
+
+    /* ============================================
+       NEWS
+       ============================================ */
+    .news-section { background: var(--bg-light); }
+    .news-card {
+      background: var(--bg-white);
+      border-radius: var(--radius);
+      overflow: hidden;
+      border: 1px solid var(--border-light);
+      transition: all var(--transition);
+    }
+    .news-card:hover { box-shadow: var(--shadow-hover); transform: translateY(-4px); }
+    .news-card-body { padding: 28px; }
+    .news-tag {
+      display: inline-block;
+      background: var(--accent);
+      color: var(--primary);
+      padding: 4px 12px;
+      border-radius: 50px;
+      font-size: 0.75rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      margin-bottom: 14px;
+    }
+    .news-card h3 { font-size: 1.15rem; font-weight: 700; margin-bottom: 10px; }
+    .news-card p { color: var(--text-muted); font-size: 0.9rem; margin-bottom: 16px; }
+    .news-date { font-size: 0.8rem; color: var(--text-muted); }
+
+    /* ============================================
+       JOIN / FORM
+       ============================================ */
+    .join-section {
+      background: linear-gradient(135deg, var(--primary) 0%, #0d3570 100%);
+      color: var(--bg-white);
+      text-align: center;
+    }
+    .join-section .section-title { color: var(--bg-white); }
+    .join-section .section-subtitle { color: rgba(255,255,255,0.85); margin-left: auto; margin-right: auto; }
+    .join-form {
+      max-width: 560px;
+      margin: 0 auto;
+      text-align: left;
+    }
+    .form-group { margin-bottom: 20px; }
+    .form-group label {
+      display: block;
+      font-weight: 600;
+      font-size: 0.9rem;
+      margin-bottom: 6px;
+    }
+    .form-group input,
+    .form-group select,
+    .form-group textarea {
+      width: 100%;
+      padding: 14px 16px;
+      border-radius: 8px;
+      border: 2px solid rgba(255,255,255,0.2);
+      background: rgba(255,255,255,0.1);
+      color: var(--bg-white);
+      font-family: inherit;
+      font-size: 1rem;
+      transition: border-color var(--transition);
+    }
+    .form-group input::placeholder,
+    .form-group textarea::placeholder { color: rgba(255,255,255,0.5); }
+    .form-group input:focus,
+    .form-group select:focus,
+    .form-group textarea:focus {
+      outline: none;
+      border-color: var(--accent);
+    }
+    .form-group select option { color: var(--text-dark); }
+    .form-group textarea { resize: vertical; min-height: 120px; }
+    .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+    .form-check { display: flex; gap: 10px; align-items: flex-start; font-size: 0.85rem; }
+    .form-check input { width: auto; margin-top: 4px; }
+
+    /* ============================================
+       FOOTER
+       ============================================ */
+    .footer {
+      background: #061e40;
+      color: rgba(255,255,255,0.7);
+      padding: 64px 0 32px;
+      font-size: 0.9rem;
+    }
+    .footer-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 40px;
+      margin-bottom: 48px;
+    }
+    .footer h4 {
+      color: var(--bg-white);
+      font-size: 1rem;
+      font-weight: 700;
+      margin-bottom: 16px;
+    }
+    .footer a { color: rgba(255,255,255,0.7); display: block; margin-bottom: 10px; }
+    .footer a:hover { color: var(--accent); }
+    .footer-bottom {
+      border-top: 1px solid rgba(255,255,255,0.1);
+      padding-top: 32px;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      gap: 16px;
+      font-size: 0.8rem;
+    }
+
+    /* ============================================
+       MODAL
+       ============================================ */
+    .modal-overlay {
+      display: none;
+      position: fixed;
+      inset: 0;
+      background: rgba(0,0,0,0.6);
+      z-index: 2000;
+      align-items: center;
+      justify-content: center;
+      padding: 24px;
+    }
+    .modal-overlay.active { display: flex; }
+    .modal {
+      background: var(--bg-white);
+      border-radius: var(--radius);
+      max-width: 480px;
+      width: 100%;
+      padding: 40px;
+      position: relative;
+      max-height: 90vh;
+      overflow-y: auto;
+    }
+    .modal h2 { font-size: 1.6rem; font-weight: 800; margin-bottom: 8px; color: var(--primary); }
+    .modal p { color: var(--text-muted); margin-bottom: 24px; }
+    .modal .form-group input,
+    .modal .form-group select {
+      background: var(--bg-light);
+      border-color: var(--border-light);
+      color: var(--text-dark);
+    }
+    .modal-close {
+      position: absolute;
+      top: 16px;
+      right: 16px;
+      background: none;
+      border: none;
+      font-size: 1.4rem;
+      cursor: pointer;
+      color: var(--text-muted);
+    }
+
+    /* ============================================
+       BACK TO TOP
+       ============================================ */
+    .back-top {
+      position: fixed;
+      bottom: 32px;
+      right: 32px;
+      width: 48px;
+      height: 48px;
+      border-radius: 50%;
+      background: var(--accent);
+      color: var(--primary);
+      border: none;
+      font-size: 1.2rem;
+      cursor: pointer;
+      opacity: 0;
+      visibility: hidden;
+      transition: all var(--transition);
+      z-index: 900;
+      box-shadow: 0 4px 16px rgba(0,0,0,0.2);
+    }
+    .back-top.visible { opacity: 1; visibility: visible; }
+    .back-top:hover { background: var(--accent-dark); }
+
+    /* ============================================
+       RESPONSIVE
+       ============================================ */
+    @media (max-width: 900px) {
+      .hero h1 { font-size: 2.4rem; }
+      .hero-stats { flex-direction: column; gap: 24px; }
+      .nav-links { display: none; }
+      .mobile-toggle { display: block; }
+      .nav-links.active {
+        display: flex;
+        flex-direction: column;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        right: 0;
+        background: var(--bg-white);
+        padding: 24px;
+        gap: 20px;
+        box-shadow: 0 12px 30px rgba(0,0,0,0.1);
+        border-top: 1px solid var(--border-light);
+      }
+    }
+    @media (max-width: 600px) {
+      .section { padding: 56px 0; }
+      .section-title { font-size: 1.8rem; }
+      .hero { padding: 72px 0 56px; }
+      .hero h1 { font-size: 2rem; }
+      .hero p { font-size: 1rem; }
+      .hero-actions { flex-direction: column; }
+      .form-row { grid-template-columns: 1fr; }
+      .header-actions .btn { display: none; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Skip Link -->
+  <a href="#main-content" class="skip-link">Skip to main content</a>
+
+  <!-- ==========================================
+       HEADER
+       ========================================== -->
+  <header class="header" role="banner">
+    <div class="container header-inner">
+      <a href="#" class="logo" aria-label="Retailers Union Home">
+        <i class="fa-solid fa-cash-register" aria-hidden="true"></i>
+        Retailers&nbsp;Union
+      </a>
+      <nav class="nav-links" id="navLinks" role="navigation" aria-label="Main navigation">
+        <a href="#why">Why Union</a>
+        <a href="#rights">Your Rights</a>
+        <a href="#benefits">Benefits</a>
+        <a href="#organize">Organize</a>
+        <a href="#news">News</a>
+        <a href="#join">Join</a>
+      </nav>
+      <div class="header-actions">
+        <button class="btn btn-sm btn-primary" onclick="openModal('joinModal')">
+          <i class="fa-solid fa-hand-fist" aria-hidden="true"></i> Join Us
+        </button>
+        <button class="mobile-toggle" id="mobileToggle" aria-label="Toggle navigation" aria-expanded="false">
+          <i class="fa-solid fa-bars" aria-hidden="true"></i>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <main id="main-content">
+
+    <!-- ==========================================
+         HERO
+         ========================================== -->
+    <section class="hero" aria-labelledby="hero-title">
+      <div class="container">
+        <div class="hero-content">
+          <span class="hero-badge"><i class="fa-solid fa-bolt" aria-hidden="true"></i> The Union for Frontline Retail Workers</span>
+          <h1 id="hero-title">Retailers Union:<br><span>Stronger Together.</span></h1>
+          <p>We fight for fair wages, predictable schedules, safe workplaces, and the respect every retail worker deserves. When we stand together, we win.</p>
+          <div class="hero-actions">
+            <button class="btn btn-primary" onclick="openModal('joinModal')">
+              <i class="fa-solid fa-hand-fist" aria-hidden="true"></i> Join the Movement
+            </button>
+            <a href="#why" class="btn btn-outline">
+              <i class="fa-solid fa-circle-info" aria-hidden="true"></i> Learn More
+            </a>
+          </div>
+        </div>
+        <div class="hero-stats">
+          <div class="hero-stat">
+            <h3>27%</h3>
+            <p>Union workers earn 27% more than non-union workers[reference:2]</p>
+          </div>
+          <div class="hero-stat">
+            <h3>40%</h3>
+            <p>of supermarket workers experience wage theft[reference:3]</p>
+          </div>
+          <div class="hero-stat">
+            <h3>68%</h3>
+            <p>of retail workers quit within 6 months due to burnout & favoritism[reference:4]</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==========================================
+         WHY UNION
+         ========================================== -->
+    <section class="section" id="why" aria-labelledby="why-title">
+      <div class="container">
+        <h2 class="section-title" id="why-title">Why Retail Workers Need a Union</h2>
+        <p class="section-subtitle">The retail industry generates billions, yet the workers who keep it running are struggling. A union gives you the power to change that.</p>
+        <div class="grid-3">
+          <article class="card">
+            <div class="card-icon"><i class="fa-solid fa-hand-holding-dollar" aria-hidden="true"></i></div>
+            <h3>Fair Wages</h3>
+            <p>Union retail workers negotiate higher pay, annual raises, and wage escalators tied to the cost of living. No more stagnant wages while CEOs get bonuses.</p>
+            <span class="stat-highlight">+27%</span>
+          </article>
+          <article class="card">
+            <div class="card-icon"><i class="fa-solid fa-calendar-check" aria-hidden="true"></i></div>
+            <h3>Predictable Scheduling</h3>
+            <p>Say goodbye to last-minute shift changes and "clopening" shifts. We fight for 14-day advance schedules, predictability pay, and guaranteed rest between shifts[reference:5].</p>
+            <span class="stat-highlight">14 Days</span>
+          </article>
+          <article class="card">
+            <div class="card-icon"><i class="fa-solid fa-shield-halved" aria-hidden="true"></i></div>
+            <h3>Respect & Safety</h3>
+            <p>From verbal abuse to wage theft, retail workers face it all. A union contract includes just-cause discipline, grievance procedures, and safety protections[reference:6].</p>
+            <span class="stat-highlight">Just Cause</span>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==========================================
+         RIGHTS
+         ========================================== -->
+    <section class="section rights-section" id="rights" aria-labelledby="rights-title">
+      <div class="container">
+        <h2 class="section-title" id="rights-title">Know Your Rights</h2>
+        <p class="section-subtitle">The law is on your side. Here are the protections every retail worker should know.</p>
+        <div class="rights-list">
+          <div class="rights-item">
+            <i class="fa-solid fa-scale-balanced" aria-hidden="true"></i>
+            <div>
+              <h4>Right to Organize (NLRA)</h4>
+              <p>Under the National Labor Relations Act, you have the right to form or join a union, bargain collectively, and engage in protected concerted activity—without retaliation[reference:7].</p>
+            </div>
+          </div>
+          <div class="rights-item">
+            <i class="fa-solid fa-clock" aria-hidden="true"></i>
+            <div>
+              <h4>Right to Be Paid for All Hours Worked</h4>
+              <p>Bag checks, closing duties, and mandatory meetings are work time. Wage theft—including unpaid overtime and break denial—is illegal. 40% of supermarket workers have experienced it[reference:8].</p>
+            </div>
+          </div>
+          <div class="rights-item">
+            <i class="fa-solid fa-calendar-days" aria-hidden="true"></i>
+            <div>
+              <h4>Right to Predictive Scheduling</h4>
+              <p>If you work in a Fair Workweek jurisdiction (e.g., NYC, Chicago, Seattle, Oregon), your employer must post schedules 14 days in advance and pay a premium for last-minute changes[reference:9].</p>
+            </div>
+          </div>
+          <div class="rights-item">
+            <i class="fa-solid fa-ban" aria-hidden="true"></i>
+            <div>
+              <h4>Protection from Wage Deductions</h4>
+              <p>Employers generally cannot deduct register shortages or breakage from your pay unless they can prove dishonesty or gross negligence[reference:10].</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==========================================
+         BENEFITS
+         ========================================== -->
+    <section class="section benefits-section" id="benefits" aria-labelledby="benefits-title">
+      <div class="container">
+        <div class="grid-2">
+          <div>
+            <h2 class="section-title" id="benefits-title">What You Gain with a Union</h2>
+            <p class="section-subtitle">A union contract is a legally binding agreement that locks in your wins and protects your future.</p>
+            <div class="benefit-item">
+              <i class="fa-solid fa-check-circle" aria-hidden="true"></i>
+              <div>
+                <h4>Higher Wages & Regular Raises</h4>
+                <p>Union grocery workers have won immediate raises of 16.5% and median wages over $23/hour[reference:11].</p>
+              </div>
+            </div>
+            <div class="benefit-item">
+              <i class="fa-solid fa-check-circle" aria-hidden="true"></i>
+              <div>
+                <h4>Health Insurance & Pension</h4>
+                <p>Employer-provided health plans and pension contributions that increase with your wages[reference:12].</p>
+              </div>
+            </div>
+            <div class="benefit-item">
+              <i class="fa-solid fa-check-circle" aria-hidden="true"></i>
+              <div>
+                <h4>Paid Time Off & Sick Days</h4>
+                <p>Negotiated vacation banks, paid holidays, and sick leave—no more choosing between your health and your paycheck.</p>
+              </div>
+            </div>
+            <!-- ===== ADDED FREE COUNSELING BENEFIT ===== -->
+            <div class="benefit-item">
+              <i class="fa-solid fa-hand-holding-heart" aria-hidden="true"></i>
+              <div>
+                <h4>Free Counseling & Mental Health Support</h4>
+                <p>Retail work can be stressful. Free counseling is available through <a href="https://pntpsychologist.co.za" target="_blank" rel="noopener noreferrer">pntpsychologist.co.za</a>.</p>
+              </div>
+            </div>
+            <!-- ======================================== -->
+            <div class="benefit-item">
+              <i class="fa-solid fa-check-circle" aria-hidden="true"></i>
+              <div>
+                <h4>Grievance Procedure & Just Cause</h4>
+                <p>You can't be fired or disciplined without just cause, and you have a union representative by your side[reference:13].</p>
+              </div>
+            </div>
+            <div class="benefit-item">
+              <i class="fa-solid fa-check-circle" aria-hidden="true"></i>
+              <div>
+                <h4>Right to Sit</h4>
+                <p>Retail workers in unionized stores have won the right to sit while working—a simple dignity that makes a big difference[reference:14].</p>
+              </div>
+            </div>
+          </div>
+          <div style="background: var(--bg-light); border-radius: var(--radius); padding: 48px; display: flex; flex-direction: column; justify-content: center;">
+            <blockquote style="font-size: 1.25rem; font-weight: 600; color: var(--primary); line-height: 1.6; margin-bottom: 24px;">
+              <i class="fa-solid fa-quote-left" style="color: var(--accent); margin-right: 8px;" aria-hidden="true"></i>
+              Having a union means I don’t have to face management alone. I have support, and my voice matters.
+            </blockquote>
+            <p style="font-weight: 700; color: var(--text-dark);">— Grocery Clerk, Edmonton[reference:15]</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==========================================
+         ORGANIZE
+         ========================================== -->
+    <section class="section organize-section" id="organize" aria-labelledby="organize-title">
+      <div class="container">
+        <h2 class="section-title" id="organize-title">How to Organize Your Workplace</h2>
+        <p class="section-subtitle">Change starts with a conversation. Here’s the proven path to forming a union.</p>
+        <div class="step-grid">
+          <div class="step">
+            <span class="step-number">1</span>
+            <h3>Talk to Co-Workers</h3>
+            <p>Start low-stakes conversations about wages, scheduling, and respect. Find out who shares your concerns[reference:16].</p>
+          </div>
+          <div class="step">
+            <span class="step-number">2</span>
+            <h3>Build an Organizing Committee</h3>
+            <p>Gather a small, trusted group to chart issues, plan actions, and support each other[reference:17].</p>
+          </div>
+          <div class="step">
+            <span class="step-number">3</span>
+            <h3>Sign Union Cards</h3>
+            <p>Once 30% of workers sign authorization cards, you can file for a union election with the NLRB[reference:18].</p>
+          </div>
+          <div class="step">
+            <span class="step-number">4</span>
+            <h3>Win the Election</h3>
+            <p>Vote as a workplace. A majority wins the right to bargain a contract.</p>
+          </div>
+          <div class="step">
+            <span class="step-number">5</span>
+            <h3>Negotiate Your Contract</h3>
+            <p>Your bargaining committee negotiates wages, benefits, and protections. You vote to ratify[reference:19].</p>
+          </div>
+          <div class="step">
+            <span class="step-number">6</span>
+            <h3>Enforce Your Rights</h3>
+            <p>Your union stays on the job to enforce the contract, handle grievances, and hold management accountable.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==========================================
+         NEWS
+         ========================================== -->
+    <section class="section news-section" id="news" aria-labelledby="news-title">
+      <div class="container">
+        <h2 class="section-title" id="news-title">Latest News & Wins</h2>
+        <p class="section-subtitle">Real victories from retail workers organizing across the country.</p>
+        <div class="grid-3">
+          <article class="news-card">
+            <div class="news-card-body">
+              <span class="news-tag">Victory</span>
+              <h3>Portland Grocery Workers Win 16.5% Raises</h3>
+              <p>850 workers at New Seasons won a first contract with raises up to 16.5%, just cause, and the right for retail workers to sit while working[reference:20].</p>
+              <span class="news-date"><i class="fa-regular fa-calendar" aria-hidden="true"></i> January 2026</span>
+            </div>
+          </article>
+          <article class="news-card">
+            <div class="news-card-body">
+              <span class="news-tag">Organizing</span>
+              <h3>Giant Eagle Retail Workers Join UFCW Local 1776</h3>
+              <p>Over 180 workers at two Pittsburgh stores organized for a voice on the job, citing respect, wages, and scheduling as key issues[reference:21].</p>
+              <span class="news-date"><i class="fa-regular fa-calendar" aria-hidden="true"></i> May 2025</span>
+            </div>
+          </article>
+          <article class="news-card">
+            <div class="news-card-body">
+              <span class="news-tag">Research</span>
+              <h3>UCLA Report Exposes Wage Theft in Supermarkets</h3>
+              <p>New research shows 40% of supermarket workers experience wage theft, with retail workers facing the highest rates of abuse[reference:22].</p>
+              <span class="news-date"><i class="fa-regular fa-calendar" aria-hidden="true"></i> February 2026</span>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==========================================
+         JOIN
+         ========================================== -->
+    <section class="section join-section" id="join" aria-labelledby="join-title">
+      <div class="container">
+        <h2 class="section-title" id="join-title">Ready to Join the Movement?</h2>
+        <p class="section-subtitle">Fill out the form below and a union organizer will reach out to you. All inquiries are confidential.</p>
+        <!-- ===== ADDED FREE COUNSELING CALLOUT ===== -->
+        <p style="color: rgba(255,255,255,0.9); margin-bottom: 24px;">
+          <i class="fa-solid fa-hand-holding-heart" aria-hidden="true"></i>
+          Free counseling available through
+          <a href="https://pntpsychologist.co.za" target="_blank" rel="noopener noreferrer"
+             style="color: var(--accent); font-weight: 700;">pntpsychologist.co.za</a>.
+        </p>
+        <!-- ======================================== -->
+        <form class="join-form" id="joinForm" action="#" method="POST" onsubmit="handleJoin(event)">
+          <div class="form-row">
+            <div class="form-group">
+              <label for="firstName">First Name *</label>
+              <input type="text" id="firstName" name="firstName" placeholder="Maria" required>
+            </div>
+            <div class="form-group">
+              <label for="lastName">Last Name *</label>
+              <input type="text" id="lastName" name="lastName" placeholder="Garcia" required>
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="email">Email Address *</label>
+            <input type="email" id="email" name="email" placeholder="maria@example.com" required>
+          </div>
+          <div class="form-group">
+            <label for="employer">Employer *</label>
+            <input type="text" id="employer" name="employer" placeholder="Store or company name" required>
+          </div>
+          <div class="form-group">
+            <label for="jobTitle">Job Title</label>
+            <select id="jobTitle" name="jobTitle">
+              <option value="cashier">Cashier</option>
+              <option value="front-end">Front-End Associate</option>
+              <option value="grocery">Grocery Clerk</option>
+              <option value="other">Other</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label for="message">Tell us about your workplace (optional)</label>
+            <textarea id="message" name="message" placeholder="What issues matter most to you?"></textarea>
+          </div>
+          <div class="form-check">
+            <input type="checkbox" id="consent" name="consent" required>
+            <label for="consent">I agree to be contacted by a union organizer. I understand my information will be kept confidential.</label>
+          </div>
+          <button type="submit" class="btn btn-primary" style="width:100%; margin-top: 8px;">
+            <i class="fa-solid fa-hand-fist" aria-hidden="true"></i> Join Retailers Union
+          </button>
+        </form>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ==========================================
+       FOOTER
+       ========================================== -->
+  <footer class="footer" role="contentinfo">
+    <div class="container">
+      <div class="footer-grid">
+        <div>
+          <div class="logo" style="color: var(--bg-white); margin-bottom: 16px;">
+            <i class="fa-solid fa-cash-register" style="color: var(--accent);" aria-hidden="true"></i>
+            Retailers&nbsp;Union
+          </div>
+          <p style="font-size: 0.85rem; line-height: 1.7;">Fighting for the dignity, safety, and prosperity of every retail worker. Together, we win.</p>
+        </div>
+        <div>
+          <h4>Quick Links</h4>
+          <a href="#why">Why Union</a>
+          <a href="#rights">Your Rights</a>
+          <a href="#benefits">Benefits</a>
+          <a href="#organize">Organize</a>
+        </div>
+        <div>
+          <h4>Member Resources</h4>
+          <a href="#">Member Portal</a>
+          <a href="#">Contract Library</a>
+          <a href="#">Forms & Documents</a>
+          <a href="#">Training & Certification</a>
+          <!-- ===== ADDED FREE COUNSELING LINK ===== -->
+          <a href="https://pntpsychologist.co.za" target="_blank" rel="noopener noreferrer">
+            <i class="fa-solid fa-hand-holding-heart" aria-hidden="true"></i> Free Counseling
+          </a>
+          <!-- ====================================== -->
+        </div>
+        <div>
+          <h4>Contact</h4>
+          <a href="mailto:info@retailersunion.org"><i class="fa-regular fa-envelope" aria-hidden="true"></i> info@retailersunion.org</a>
+          <a href="tel:1-800-555-0199"><i class="fa-solid fa-phone" aria-hidden="true"></i> 1-800-555-0199</a>
+          <a href="#"><i class="fa-solid fa-location-dot" aria-hidden="true"></i> 123 Union Way, Suite 400</a>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>&copy; 2026 Retailers Union. All rights reserved.</p>
+        <div style="display: flex; gap: 24px;">
+          <a href="#">Privacy Policy</a>
+          <a href="#">Accessibility Statement</a>
+          <a href="#">Terms of Use</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- ==========================================
+       JOIN MODAL
+       ========================================== -->
+  <div class="modal-overlay" id="joinModal" role="dialog" aria-modal="true" aria-labelledby="joinModalTitle">
+    <div class="modal">
+      <button class="modal-close" onclick="closeModal('joinModal')" aria-label="Close modal">&times;</button>
+      <h2 id="joinModalTitle">Join Retailers Union</h2>
+      <p>Fill out this quick form and an organizer will contact you within 48 hours.</p>
+      <form onsubmit="handleModalJoin(event)">
+        <div class="form-group">
+          <label for="modalName">Full Name *</label>
+          <input type="text" id="modalName" placeholder="Your name" required>
+        </div>
+        <div class="form-group">
+          <label for="modalEmail">Email *</label>
+          <input type="email" id="modalEmail" placeholder="you@example.com" required>
+        </div>
+        <div class="form-group">
+          <label for="modalEmployer">Employer *</label>
+          <input type="text" id="modalEmployer" placeholder="Store name" required>
+        </div>
+        <button type="submit" class="btn btn-primary" style="width:100%;">
+          <i class="fa-solid fa-hand-fist" aria-hidden="true"></i> Submit
+        </button>
+      </form>
+    </div>
+  </div>
+
+  <!-- ==========================================
+       MEMBER LOGIN MODAL (Placeholder)
+       ========================================== -->
+  <div class="modal-overlay" id="loginModal" role="dialog" aria-modal="true" aria-labelledby="loginModalTitle">
+    <div class="modal">
+      <button class="modal-close" onclick="closeModal('loginModal')" aria-label="Close modal">&times;</button>
+      <h2 id="loginModalTitle">Member Login</h2>
+      <p>Access your contract, forms, and member resources.</p>
+      <form onsubmit="event.preventDefault(); alert('Member portal is coming soon. Please contact the union office for assistance.');">
+        <div class="form-group">
+          <label for="loginEmail">Email</label>
+          <input type="email" id="loginEmail" placeholder="you@example.com" required>
+        </div>
+        <div class="form-group">
+          <label for="loginPassword">Password</label>
+          <input type="password" id="loginPassword" placeholder="••••••••" required>
+        </div>
+        <button type="submit" class="btn btn-primary" style="width:100%;">Log In</button>
+      </form>
+    </div>
+  </div>
+
+  <!-- Back to Top -->
+  <button class="back-top" id="backTop" aria-label="Back to top">
+    <i class="fa-solid fa-arrow-up" aria-hidden="true"></i>
+  </button>
+
+  <!-- ==========================================
+       JAVASCRIPT
+       ========================================== -->
+  <script>
+    // Mobile menu toggle
+    const mobileToggle = document.getElementById('mobileToggle');
+    const navLinks = document.getElementById('navLinks');
+    mobileToggle.addEventListener('click', () => {
+      const isOpen = navLinks.classList.toggle('active');
+      mobileToggle.setAttribute('aria-expanded', isOpen);
+    });
+
+    // Close mobile menu on link click
+    navLinks.querySelectorAll('a').forEach(link => {
+      link.addEventListener('click', () => {
+        navLinks.classList.remove('active');
+        mobileToggle.setAttribute('aria-expanded', 'false');
+      });
+    });
+
+    // Modal functions
+    function openModal(id) {
+      const modal = document.getElementById(id);
+      if (modal) {
+        modal.classList.add('active');
+        document.body.style.overflow = 'hidden';
+      }
+    }
+    function closeModal(id) {
+      const modal = document.getElementById(id);
+      if (modal) {
+        modal.classList.remove('active');
+        document.body.style.overflow = '';
+      }
+    }
+    // Close modal on overlay click
+    document.querySelectorAll('.modal-overlay').forEach(overlay => {
+      overlay.addEventListener('click', (e) => {
+        if (e.target === overlay) {
+          overlay.classList.remove('active');
+          document.body.style.overflow = '';
+        }
+      });
+    });
+    // Close modal on Escape key
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape') {
+        document.querySelectorAll('.modal-overlay.active').forEach(m => {
+          m.classList.remove('active');
+          document.body.style.overflow = '';
+        });
+      }
+    });
+
+    // Back to top
+    const backTop = document.getElementById('backTop');
+    window.addEventListener('scroll', () => {
+      if (window.scrollY > 600) {
+        backTop.classList.add('visible');
+      } else {
+        backTop.classList.remove('visible');
+      }
+    });
+    backTop.addEventListener('click', () => {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
+
+    // Form handlers (demo – prevent actual submission)
+    function handleJoin(e) {
+      e.preventDefault();
+      alert('Thank you for joining! A union organizer will contact you soon.');
+      e.target.reset();
+    }
+    function handleModalJoin(e) {
+      e.preventDefault();
+      alert('Thank you! An organizer will reach out within 48 hours.');
+      e.target.reset();
+      closeModal('joinModal');
+    }
+
+    // Smooth scroll for anchor links (with offset for sticky header)
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', function (e) {
+        const targetId = this.getAttribute('href');
+        if (targetId === '#') return;
+        const target = document.querySelector(targetId);
+        if (target) {
+          e.preventDefault();
+          const headerHeight = document.querySelector('.header').offsetHeight;
+          const targetPosition = target.getBoundingClientRect().top + window.pageYOffset - headerHeight - 20;
+          window.scrollTo({ top: targetPosition, behavior: 'smooth' });
+        }
+      });
+    });
+  </script>
+</body>
+</html>
